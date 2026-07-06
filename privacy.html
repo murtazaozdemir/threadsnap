@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ThreadSnap — Privacy Policy</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        max-width: 720px; margin: 0 auto; padding: 40px 24px; color: #0f1419;
+        line-height: 1.6;
+      }
+      h1 { font-size: 24px; margin-bottom: 4px; }
+      .updated { color: #536471; font-size: 13px; margin-bottom: 28px; }
+      h2 { font-size: 16px; margin-top: 28px; }
+      ul { padding-left: 20px; }
+      li { margin-bottom: 6px; }
+      code { background: #eff3f4; padding: 1px 5px; border-radius: 4px; font-size: 13px; }
+      .brand { color: #1d9bf0; font-weight: 700; }
+      footer { margin-top: 36px; border-top: 1px solid #eff3f4; padding-top: 14px; color: #8b98a5; font-size: 13px; }
+    </style>
+  </head>
+  <body>
+    <h1><span class="brand">ThreadSnap</span>: Thread Exporter — Privacy Policy</h1>
+    <div class="updated">Last updated: 6 July 2026</div>
+
+    <p>
+      ThreadSnap is designed to protect your privacy. This policy explains what
+      the extension does and does not do with your data.
+    </p>
+
+    <h2>Summary</h2>
+    <p>
+      ThreadSnap does not collect, transmit, sell, or share any personal data. It
+      does not send your data to the developer or to any server we control. The
+      files you export are generated locally, inside your own browser.
+    </p>
+
+    <h2>What the extension accesses</h2>
+    <ul>
+      <li>
+        <b>The current X / Twitter thread.</b> When you click the ThreadSnap
+        toolbar button on an <code>x.com</code> or <code>twitter.com</code>
+        thread, the extension reads the posts already rendered as you scroll —
+        their text, author, timestamps, engagement counts, and media — in order
+        to build the file you asked to export.
+      </li>
+      <li>
+        <b>Media from Twitter's content delivery network.</b> To embed the photos
+        and video thumbnails that are already displayed in the thread, the
+        extension re-reads those images from Twitter's own media servers
+        (<code>pbs.twimg.com</code> and other <code>*.twimg.com</code> hosts).
+        These requests go to Twitter, not to the developer, and carry no
+        information about you beyond an ordinary image request.
+      </li>
+      <li>
+        <b>Your export preferences.</b> Your chosen output format and image
+        quality are saved using the browser's local extension storage so your
+        settings persist between sessions.
+      </li>
+    </ul>
+
+    <h2>What the extension does NOT do</h2>
+    <ul>
+      <li>It does not send your exported files, the thread content, or any other data to the developer or any third-party server.</li>
+      <li>It does not collect personally identifiable information, credentials, browsing history, or analytics.</li>
+      <li>It does not track your activity across sites.</li>
+      <li>It does not post, like, follow, reply, or change anything in your X / Twitter account.</li>
+      <li>It does not use the X / Twitter API or sign in on your behalf.</li>
+      <li>It does not load or execute any remote code.</li>
+    </ul>
+
+    <h2>How your files are created</h2>
+    <p>
+      All exported files (PDF, images, ZIP) are generated on your device from the
+      posts displayed in your browser and saved through your browser's normal
+      download mechanism. They are never uploaded anywhere.
+    </p>
+
+    <h2>Data storage</h2>
+    <p>
+      The only data stored is your export-preference settings, kept locally on
+      your device via the browser's extension storage. You can clear it at any
+      time by removing the extension.
+    </p>
+
+    <h2>Permissions</h2>
+    <ul>
+      <li><code>activeTab</code> — grants access to the current tab only at the moment you click the ThreadSnap button, so it can read the open thread. No standing access to any site is kept.</li>
+      <li><code>scripting</code> — to inject the capture code into that tab on demand when you start an export.</li>
+      <li><code>storage</code> — to remember your export preferences locally.</li>
+      <li><code>*.twimg.com</code> host access — so the extension can read back the photos and video thumbnails already shown in the thread and embed them into your export. This covers Twitter's media servers only; it does not grant access to your X account or to any other website.</li>
+    </ul>
+
+    <h2>Responsible use</h2>
+    <p>
+      ThreadSnap only works with content you can already view in your browser. You
+      are responsible for ensuring your use of exported content complies with
+      applicable copyright, the platform's Terms of Service, other people's
+      privacy, and any laws that apply to you.
+    </p>
+
+    <h2>Changes to this policy</h2>
+    <p>
+      If this policy changes, the updated version will be published here and the
+      "Last updated" date revised.
+    </p>
+
+    <footer>
+      Contact: <a href="mailto:info@appvitrine.com">info@appvitrine.com</a>
+    </footer>
+  </body>
+</html>
