@@ -46,12 +46,13 @@
         to build the file you asked to export.
       </li>
       <li>
-        <b>Media from Twitter's content delivery network.</b> To embed the photos
-        and video thumbnails that are already displayed in the thread, the
-        extension re-reads those images from Twitter's own media servers
-        (<code>pbs.twimg.com</code> and other <code>*.twimg.com</code> hosts).
+        <b>Media and fonts from Twitter's content delivery network.</b> To embed
+        the photos and video thumbnails that are already displayed in the thread
+        — and the fonts the thread is rendered with — the extension re-reads
+        those files from Twitter's own servers (<code>pbs.twimg.com</code>,
+        <code>abs.twimg.com</code>, and other <code>*.twimg.com</code> hosts).
         These requests go to Twitter, not to the developer, and carry no
-        information about you beyond an ordinary image request.
+        information about you beyond ordinary image and font requests.
       </li>
       <li>
         <b>Your export preferences.</b> Your chosen output format and image
@@ -89,7 +90,7 @@
       <li><code>activeTab</code> — grants access to the current tab only at the moment you click the ThreadSnap button, so it can read the open thread. No standing access to any site is kept.</li>
       <li><code>scripting</code> — to inject the capture code into that tab on demand when you start an export.</li>
       <li><code>storage</code> — to remember your export preferences locally.</li>
-      <li><code>*.twimg.com</code> host access — so the extension can read back the photos and video thumbnails already shown in the thread and embed them into your export. This covers Twitter's media servers only; it does not grant access to your X account or to any other website.</li>
+      <li><code>*.twimg.com</code> host access — so the extension can read back the photos, video thumbnails, and fonts already used by the thread and embed them into your export. This covers Twitter's content servers only; it does not grant access to your X account or to any other website.</li>
     </ul>
 
     <h2>Responsible use</h2>
