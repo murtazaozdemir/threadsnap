@@ -22,7 +22,7 @@
   </head>
   <body>
     <h1><span class="brand">ThreadSnap</span>: Thread Exporter — Privacy Policy</h1>
-    <div class="updated">Last updated: 6 July 2026</div>
+    <div class="updated">Last updated: 7 July 2026</div>
 
     <p>
       ThreadSnap is designed to protect your privacy. This policy explains what
@@ -90,8 +90,12 @@
       <li><code>activeTab</code> — grants access to the current tab only at the moment you click the ThreadSnap button, so it can read the open thread. No standing access to any site is kept.</li>
       <li><code>scripting</code> — to inject the capture code into that tab on demand when you start an export.</li>
       <li><code>storage</code> — to remember your export preferences locally.</li>
-      <li><code>*.twimg.com</code> host access — so the extension can read back the photos, video thumbnails, and fonts already used by the thread and embed them into your export. This covers Twitter's content servers only; it does not grant access to your X account or to any other website.</li>
     </ul>
+    <p>
+      The extension requests no host permissions. The media and fonts it embeds
+      are readable because Twitter's own content servers permit it (standard
+      CORS headers), using only the access the page itself already has.
+    </p>
 
     <h2>Responsible use</h2>
     <p>
