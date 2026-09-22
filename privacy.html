@@ -22,7 +22,7 @@
   </head>
   <body>
     <h1><span class="brand">ThreadSnap</span>: Thread Exporter — Privacy Policy</h1>
-    <div class="updated">Last updated: 7 July 2026</div>
+    <div class="updated">Last updated: 21 September 2026</div>
 
     <p>
       ThreadSnap is designed to protect your privacy. This policy explains what
@@ -44,6 +44,21 @@
         thread, the extension reads the posts already rendered as you scroll —
         their text, author, timestamps, engagement counts, and media — in order
         to build the file you asked to export.
+      </li>
+      <li>
+        <b>Posts you list (optional "Specific posts" feature).</b> If you paste
+        post links or IDs into the extension, it automatically moves the tab you have open
+        between those posts, one at a time, pausing a couple of seconds between
+        each (at most 100 per export), reads each post as it renders, and then
+        returns the tab to the page you were on. This is automated navigation,
+        not you clicking each link, so X may treat heavy use as automated
+        activity. The X website itself loads those posts, under your own login,
+        as the tab navigates; the extension does not request posts from X itself
+        and does not use the X API. (The only requests it makes of its own are
+        the media and font downloads from Twitter's content delivery network
+        described below.) If several posts in a row fail to load, the
+        export stops. The list you paste is used only for that export: it is not
+        saved, and it is never sent anywhere.
       </li>
       <li>
         <b>Media and fonts from Twitter's content delivery network.</b> To embed
@@ -87,7 +102,7 @@
 
     <h2>Permissions</h2>
     <ul>
-      <li><code>activeTab</code> — grants access to the current tab only at the moment you click the ThreadSnap button, so it can read the open thread. No standing access to any site is kept.</li>
+      <li><code>activeTab</code> — grants access to the current tab only at the moment you click the ThreadSnap button, so it can read the open thread (and, if you use the "Specific posts" feature, move that same tab between the posts you listed). No standing access to any site is kept.</li>
       <li><code>scripting</code> — to inject the capture code into that tab on demand when you start an export.</li>
       <li><code>storage</code> — to remember your export preferences locally.</li>
     </ul>
