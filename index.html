@@ -4,7 +4,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="google-site-verification" content="G1Ce4rEv5YUveimwQgMsl5UjGXOXdqihk1G2D2O0Pqs" />
-    <title>ThreadSnap: Thread Exporter</title>
+    <title>ThreadSnap: Save X / Twitter Threads as PDF or Images</title>
+    <meta name="description" content="ThreadSnap is a free Chrome extension that saves an X / Twitter thread, or a list of posts, as a clean PDF or PNG images. Everything runs locally in your browser." />
+    <link rel="canonical" href="https://murtazaozdemir.github.io/threadsnap/" />
+    <link rel="icon" type="image/png" href="icon128.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ThreadSnap" />
+    <meta property="og:title" content="ThreadSnap: Save X / Twitter Threads as PDF or Images" />
+    <meta property="og:description" content="A free Chrome extension that saves a whole X / Twitter thread, or the posts you list, as a PDF or images. Runs locally; nothing is uploaded." />
+    <meta property="og:url" content="https://murtazaozdemir.github.io/threadsnap/" />
+    <meta property="og:image" content="https://murtazaozdemir.github.io/threadsnap/icon128.png" />
+    <meta name="twitter:card" content="summary" />
     <style>
       :root { --brand: #1d9bf0; }
       * { box-sizing: border-box; }
@@ -15,7 +25,7 @@
         padding: 24px;
       }
       .card {
-        background: #fff; max-width: 480px; width: 100%; border-radius: 16px;
+        background: #fff; max-width: 520px; width: 100%; border-radius: 16px;
         box-shadow: 0 6px 30px rgba(0,0,0,.08); padding: 40px 36px; text-align: center;
       }
       .logo {
@@ -26,13 +36,20 @@
       .logo span { color: #fff; font-size: 34px; font-weight: 800; }
       h1 { font-size: 22px; margin: 0 0 4px; }
       .tag { color: #536471; font-size: 14px; margin: 0 0 24px; }
-      p.desc { color: #0f1419; font-size: 14px; line-height: 1.6; margin: 0 0 28px; }
+      p.desc { color: #0f1419; font-size: 14px; line-height: 1.6; margin: 0 0 18px; }
+      ul.features {
+        text-align: left; font-size: 14px; line-height: 1.5; color: #283540;
+        margin: 0 auto 28px; padding-left: 20px; max-width: 400px;
+      }
+      ul.features li { margin-bottom: 4px; }
       .links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
       a.btn {
         text-decoration: none; font-weight: 600; font-size: 14px;
         padding: 10px 18px; border-radius: 10px; border: 1px solid #cfd9de; color: #0f1419;
       }
       a.btn.primary { background: var(--brand); border-color: var(--brand); color: #fff; }
+      .cta { margin-bottom: 14px; }
+      .cta a.btn { font-size: 15px; padding: 12px 24px; }
       footer { margin-top: 28px; color: #8b98a5; font-size: 12px; }
     </style>
   </head>
@@ -47,8 +64,17 @@
         posts you list by link or ID. All processed locally in your browser,
         with nothing collected or uploaded.
       </p>
+      <ul class="features">
+        <li>Save a whole thread, a search result or a profile as one PDF</li>
+        <li>Or one PNG / JPEG per post, bundled in a ZIP</li>
+        <li>Paste a list of post links to export just those, in your order</li>
+        <li>Optional Evidence mode: each image stamped with the post's link and capture time</li>
+      </ul>
+      <div class="links cta">
+        <a class="btn primary" href="https://chromewebstore.google.com/detail/threadsnap-thread-exporte/mbofdkcokfgahgajkgnlemdhnpddcjhn">Add to Chrome — free</a>
+      </div>
       <div class="links">
-        <a class="btn primary" href="help.html">Help</a>
+        <a class="btn" href="help.html">Help</a>
         <a class="btn" href="privacy.html">Privacy Policy</a>
         <a class="btn" href="terms.html">Terms of Use</a>
       </div>
