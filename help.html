@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ThreadSnap — Help</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        max-width: 720px; margin: 0 auto; padding: 40px 24px; color: #0f1419;
+        line-height: 1.6;
+      }
+      h1 { font-size: 24px; margin-bottom: 4px; }
+      .updated { color: #536471; font-size: 13px; margin-bottom: 28px; }
+      h2 { font-size: 18px; margin-top: 36px; }
+      h3 { font-size: 15px; margin-top: 22px; margin-bottom: 6px; }
+      ul, ol { padding-left: 20px; }
+      li { margin-bottom: 6px; }
+      code { background: #eff3f4; padding: 1px 5px; border-radius: 4px; font-size: 13px; }
+      pre {
+        background: #eff3f4; padding: 12px 14px; border-radius: 8px; font-size: 12.5px;
+        line-height: 1.5; overflow-x: auto; white-space: pre;
+      }
+      .brand { color: #1d9bf0; font-weight: 700; }
+      .toc { background: #f7f9f9; border-radius: 10px; padding: 12px 18px; font-size: 14px; }
+      .toc ul { margin: 6px 0 0; }
+      .toc li { margin-bottom: 2px; }
+      a { color: #1d9bf0; }
+      table { border-collapse: collapse; width: 100%; font-size: 14px; }
+      th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid #eff3f4; }
+      th { color: #536471; font-weight: 600; }
+      .tip { border-left: 3px solid #1d9bf0; padding: 4px 0 4px 12px; color: #283540; }
+      footer { margin-top: 36px; border-top: 1px solid #eff3f4; padding-top: 14px; color: #8b98a5; font-size: 13px; }
+    </style>
+  </head>
+  <body>
+    <h1><span class="brand">ThreadSnap</span>: Thread Exporter — Help</h1>
+    <div class="updated">Last updated: 3 October 2026 · applies to version 0.4 and later</div>
+
+    <div class="toc">
+      <b>On this page</b>
+      <ul>
+        <li><a href="#start">Getting started</a></li>
+        <li><a href="#page">Capture this page</a></li>
+        <li><a href="#posts">Capture specific posts</a></li>
+        <li><a href="#output">PDF or images, and the options</a></li>
+        <li><a href="#evidence">Evidence mode</a></li>
+        <li><a href="#trouble">Tips and troubleshooting</a></li>
+      </ul>
+    </div>
+
+    <h2 id="start">Getting started</h2>
+    <p>
+      ThreadSnap works on <code>x.com</code> (and <code>twitter.com</code>). Open
+      the page you want, click the ThreadSnap icon in Chrome's toolbar, choose
+      what to capture and how to save it, and click <b>Export</b>. Everything
+      happens inside your browser; the file is saved through Chrome's normal
+      download.
+    </p>
+    <table>
+      <tr><th>Mode</th><th>Use it when</th></tr>
+      <tr>
+        <td><b>This page</b></td>
+        <td>You want the posts on the page you have open: a thread, a search result or a profile.</td>
+      </tr>
+      <tr>
+        <td><b>Specific posts</b></td>
+        <td>You have a list of particular posts (links or IDs) and want only those, in your order.</td>
+      </tr>
+    </table>
+
+    <h2 id="page">Capture this page</h2>
+    <ol>
+      <li>Open a thread, search result or profile on x.com and let the first posts load.</li>
+      <li>Click the ThreadSnap icon. <b>Capture</b> is set to <b>This page</b>.</li>
+      <li>Choose <b>PDF</b> or <b>Images</b>, and optionally set <b>Max posts</b>.</li>
+      <li>Click <b>Export</b>. ThreadSnap scrolls from the top and captures each post. A counter in the corner of the page shows progress, with a <b>Cancel</b> button.</li>
+    </ol>
+    <p>
+      Leave <b>Max posts</b> blank to capture everything as it scrolls. One
+      export holds at most 500 posts, so endless pages such as a profile or a
+      search always come to a stop.
+    </p>
+
+    <h2 id="posts">Capture specific posts</h2>
+    <ol>
+      <li>Open any page on x.com (the home page is fine).</li>
+      <li>Click the ThreadSnap icon and switch <b>Capture</b> to <b>Specific posts</b>.</li>
+      <li>
+        Paste the posts, one per line. Any of these works:
+        <code>x.com/user/status/123…</code>, <code>twitter.com/user/status/123…</code>,
+        or just the post ID (15–20 digits). The popup shows how many posts it recognised.
+      </li>
+      <li>Choose <b>PDF</b> or <b>Images</b> and click <b>Export</b>.</li>
+    </ol>
+    <p>
+      ThreadSnap opens each post in the same tab, captures it, pauses a couple of
+      seconds, and moves to the next. When it's done, it takes you back to the
+      page you started from. Posts are saved in the order you listed them, and
+      duplicates are ignored.
+    </p>
+    <ul>
+      <li>Up to 100 posts per export. Smaller lists are better: above 30, the popup warns you, because X may slow down heavy automated use.</li>
+      <li>A post that can't be opened (deleted, protected, or not visible to you) is skipped and listed at the end. The rest still export.</li>
+      <li>If 3 posts in a row fail to load, ThreadSnap stops and keeps what it captured. Usually X is limiting requests or you're logged out; wait a while and try a smaller list.</li>
+      <li>Each post is captured from its own page, so it shows X's full post layout (larger text, full date and time).</li>
+    </ul>
+
+    <h2 id="output">PDF or images, and the options</h2>
+    <h3>Export as</h3>
+    <ul>
+      <li><b>PDF</b>: all posts flowed onto pages in one file. A post is never split across two pages; a very long post gets a page of its own.</li>
+      <li><b>Images</b>: one image per post, bundled in a ZIP. Each image is named after its post, for example <code>001-jdoe-2033188970296246273.png</code>: the number keeps the original order, then the author's handle and the post ID.</li>
+    </ul>
+    <h3>Options</h3>
+    <ul>
+      <li><b>File name</b>: filled in for you from the page or your list. Type your own at any time; ThreadSnap won't overwrite it.</li>
+      <li><b>Image encoding</b>: <b>PNG</b> gives the crispest text (lossless); <b>JPEG</b> makes smaller files, with a <b>JPEG quality</b> setting (Normal, High, Maximum).</li>
+      <li>Your choices are remembered for next time. The list of posts you paste is not saved.</li>
+    </ul>
+
+    <h2 id="evidence">Evidence mode</h2>
+    <p>
+      An optional setting under <b>Export as</b>, off until you turn it on. Use
+      it when you need a record of exactly which post you saved and when: for
+      your own records, for a report, or to show someone else later. It works
+      with both capture modes and both outputs.
+    </p>
+
+    <h3>1. A stamp under every post</h3>
+    <p>
+      A white strip is added <b>below</b> each post, never over it. It's part of
+      the image itself, so it appears on the PDF page and in each ZIP image:
+    </p>
+    <pre>https://x.com/jdoe/status/2033188970296246273
+Captured 2026-10-03 19:27:59 UTC · ThreadSnap 0.4.2
+Posted 2025-09-12 19:42:49 UTC · X shows it above in America/New_York (UTC−04:00)</pre>
+    <ul>
+      <li><b>Line 1</b>: the post's own link, even if you captured it from a search or a thread.</li>
+      <li><b>Line 2</b>: when ThreadSnap captured that post, in UTC, and the ThreadSnap version.</li>
+      <li>
+        <b>Line 3</b>: when the post was published, in UTC. X shows post times in
+        your computer's time zone without saying which one; this line names it,
+        so the time shown on the post can be matched to the UTC time.
+      </li>
+    </ul>
+
+    <h3>2. A manifest file</h3>
+    <p>
+      Alongside your export you get a small text file (JSON) that lists, for each
+      post: its link, ID and author handle, when it was posted and captured, the
+      image size, and a <b>SHA-256 fingerprint</b> of the image. It also records
+      the page you exported from, the ThreadSnap version, your browser's name and
+      version, and your time zone. It never includes your X account or any
+      password.
+    </p>
+    <ul>
+      <li><b>Images</b>: the manifest is inside the ZIP, named <code>threadsnap-manifest.json</code>.</li>
+      <li>
+        <b>PDF</b>: the manifest arrives as a <b>second download</b> right after the
+        PDF, named <code>&lt;your file name&gt;.manifest.json</code>, and also holds a
+        fingerprint of the whole PDF. Chrome may ask
+        <i>"This site is trying to download multiple files"</i>. Choose
+        <b>Allow</b>, or the manifest won't be saved.
+      </li>
+    </ul>
+
+    <h3>3. Checking a fingerprint</h3>
+    <p>
+      A fingerprint changes if even one pixel of the file changes. To confirm a
+      file is exactly what ThreadSnap saved, compute its SHA-256 and compare it
+      with the manifest (<code>image_sha256</code> for an image,
+      <code>pdf_sha256</code> for the PDF):
+    </p>
+    <ul>
+      <li><b>Mac</b> (Terminal): <code>shasum -a 256 001-jdoe-2033188970296246273.png</code></li>
+      <li><b>Windows</b> (PowerShell): <code>Get-FileHash .\001-jdoe-2033188970296246273.png</code></li>
+    </ul>
+    <p>
+      With PDF output, the per-post fingerprints describe each post's image
+      before it was placed on a page; the one you can check is the whole PDF's.
+      Choose <b>Images</b> if you want to check each post separately.
+    </p>
+
+    <h3>Good to know</h3>
+    <ul>
+      <li>Turning Evidence mode on switches <b>Image encoding</b> to <b>PNG</b>, so images carry no compression artifacts. You can still choose JPEG afterwards.</li>
+      <li>Keep the exported files unchanged. Renaming is fine, but editing or re-saving an image changes its fingerprint.</li>
+      <li>Like everything ThreadSnap makes, the stamp and manifest are created on your computer and never uploaded. If you share the files, the details above go with them.</li>
+    </ul>
+
+    <h2 id="trouble">Tips and troubleshooting</h2>
+    <ul>
+      <li><b>Keep the tab in front while ThreadSnap runs.</b> Chrome slows down background tabs, which can give blank or missing posts.</li>
+      <li><b>The Export button is greyed out.</b> The open tab isn't on x.com. Open an x.com page and click the icon again.</li>
+      <li><b>"Could not reach the page."</b> Reload the X tab, then open ThreadSnap again (this happens right after installing or updating).</li>
+      <li><b>Some posts couldn't be captured.</b> They're skipped and counted in the final message. Running the export again usually picks them up.</li>
+      <li><b>Images missing from a post.</b> Wait for the post's media to finish loading before you export; ThreadSnap waits briefly, but very slow media can be left out.</li>
+      <li><b>To stop a long run</b>, use <b>Cancel</b> in the popup or in the counter on the page. Posts captured so far are still saved.</li>
+    </ul>
+
+    <footer>
+      ThreadSnap is an independent tool and is not affiliated with or endorsed by X Corp.
+      Please respect copyright, the platform's terms, and other people's privacy.
+      Questions: <a href="mailto:info@appvitrine.com">info@appvitrine.com</a> ·
+      <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Use</a>
+    </footer>
+  </body>
+</html>
