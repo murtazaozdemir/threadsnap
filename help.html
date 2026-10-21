@@ -38,7 +38,7 @@
   </head>
   <body>
     <h1><span class="brand">ThreadSnap</span>: Thread Exporter — Help</h1>
-    <div class="updated">Last updated: 3 October 2026 · applies to version 0.4 and later</div>
+    <div class="updated">Last updated: 21 October 2026 · applies to version 0.4 and later</div>
 
     <div class="toc">
       <b>On this page</b>
@@ -136,7 +136,7 @@
       the image itself, so it appears on the PDF page and in each ZIP image:
     </p>
     <pre>https://x.com/jdoe/status/2033188970296246273
-Captured 2026-10-20 19:27:59 UTC · ThreadSnap 0.4.7
+Captured 2026-10-20 19:27:59 UTC · ThreadSnap 0.4.9
 Posted 2025-09-12 19:42:49 UTC · X shows it above in America/New_York (UTC−04:00)</pre>
     <ul>
       <li><b>Line 1</b>: the post's own link, even if you captured it from a search or a thread.</li>
@@ -199,7 +199,13 @@ Posted 2025-09-12 19:42:49 UTC · X shows it above in America/New_York (UTC−04
       <li><b>"Could not reach the page."</b> Reload the X tab, then open ThreadSnap again (this happens right after installing or updating).</li>
       <li><b>Some posts couldn't be captured.</b> They're skipped and counted in the final message. Running the export again usually picks them up.</li>
       <li><b>Images missing from a post.</b> Wait for the post's media to finish loading before you export; ThreadSnap waits briefly, but very slow media can be left out.</li>
-      <li><b>To stop a long run</b>, use <b>Cancel</b> in the popup or in the counter on the page. Posts captured so far are still saved.</li>
+      <li><b>To stop a long run</b>, use <b>Cancel</b> in the popup or in the
+        counter on the page. Cancelling while it is still <i>capturing</i> keeps what it has: the
+        export is written from the posts captured so far, and the message says
+        "Cancelled — exported 7 of 20". Cancelling while it is <i>building the file</i>, or clicking
+        Cancel a second time during that partial export, throws the whole thing away and saves
+        nothing. Either way the step already in progress — rasterizing a post, encoding a page —
+        has to finish first, so it can take a few seconds to stop.</li>
     </ul>
 
     <footer>
