@@ -25,7 +25,7 @@
   </head>
   <body>
     <h1><span class="brand">ThreadSnap</span>: Thread Exporter — Privacy Policy</h1>
-    <div class="updated">Last updated: 3 October 2026</div>
+    <div class="updated">Last updated: 20 October 2026</div>
 
     <p>
       ThreadSnap is designed to protect your privacy. This policy explains what
@@ -79,6 +79,14 @@
         local extension storage so your settings persist between sessions.
       </li>
       <li>
+        <b>A note of how far the last export got.</b> While an export runs, the
+        extension records one line locally — which stage it reached (capturing,
+        building, zipping, finished, cancelled or failed), when, how many posts
+        it had captured, and, if it failed, the error message. It holds no post
+        content. It is how the extension can tell you what happened when the
+        page stops responding mid-export, and each export overwrites it.
+      </li>
+      <li>
         <b>Evidence mode (optional).</b> If you turn it on, each exported image
         is stamped with the post's link and capture time, and the export
         includes a manifest file listing each post's link, posting and capture
@@ -108,16 +116,18 @@
 
     <h2>Data storage</h2>
     <p>
-      The only data stored is your export-preference settings, kept locally on
-      your device via the browser's extension storage. You can clear it at any
-      time by removing the extension.
+      The only data stored is your export-preference settings and the one-line
+      note of how far the last export got, both kept locally on your device via
+      the browser's extension storage. Neither holds any post content, and
+      neither leaves your device. You can clear them at any time by removing the
+      extension.
     </p>
 
     <h2>Permissions</h2>
     <ul>
       <li><code>activeTab</code> — grants access to the current tab only at the moment you click the ThreadSnap button, so it can read the open thread (and, if you use the "Specific posts" feature, move that same tab between the posts you listed). No standing access to any site is kept.</li>
       <li><code>scripting</code> — to inject the capture code into that tab on demand when you start an export.</li>
-      <li><code>storage</code> — to remember your export preferences locally.</li>
+      <li><code>storage</code> — to remember your export preferences locally, and to note how far the last export got so the extension can tell you what happened if it stops midway.</li>
     </ul>
     <p>
       The extension requests no host permissions. The media and fonts it embeds
