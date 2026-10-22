@@ -38,7 +38,7 @@
   </head>
   <body>
     <h1><span class="brand">ThreadSnap</span>: Thread Exporter — Help</h1>
-    <div class="updated">Last updated: 21 October 2026 · applies to version 0.4 and later</div>
+    <div class="updated">Last updated: 22 October 2026 · applies to version 0.4 and later</div>
 
     <div class="toc">
       <b>On this page</b>
@@ -100,6 +100,10 @@
         own page — the post it replies to, that one’s parent, up to the start — and puts
         that chain ahead of the reply. A reply on its own (“you are right”) doesn’t show
         what it agreed with. The replies <i>underneath</i> a post are not included.
+        <br />
+        Unlike the other settings, this one is <b>not remembered</b>: it is on every time
+        you open ThreadSnap. Turning it off applies to that one export, and the export
+        says that it was off.
       </li>
       <li>Choose <b>PDF</b> or <b>Images</b> and click <b>Export</b>.</li>
     </ol>
@@ -126,7 +130,7 @@
     <ul>
       <li><b>File name</b>: filled in for you from the page or your list. Type your own at any time; ThreadSnap won't overwrite it.</li>
       <li><b>Image encoding</b>: <b>PNG</b> gives the crispest text (lossless); <b>JPEG</b> makes smaller files, with a <b>JPEG quality</b> setting (Normal, High, Maximum).</li>
-      <li>Your choices are remembered for next time. The list of posts you paste is not saved.</li>
+      <li>Your choices are remembered for next time — except <b>Include the posts it replies to</b>, which is on every time you open ThreadSnap. The list of posts you paste is not saved.</li>
     </ul>
 
     <h2 id="evidence">Evidence mode</h2>
@@ -191,6 +195,34 @@ Posted 2025-09-12 19:42:49 UTC · X shows it above in America/New_York (UTC−04
       before it was placed on a page; the one you can check is the whole PDF's.
       Choose <b>Images</b> if you want to check each post separately.
     </p>
+
+    <h3>4. What the manifest says about replies</h3>
+    <p>
+      A reply means little without the post it answers, so the manifest is
+      explicit about what was captured — and about what wasn’t:
+    </p>
+    <ul>
+      <li>
+        <code>reply_context_included</code> says whether ThreadSnap looked for the
+        chain above each post at all, and <code>reply_context_reason</code> says why
+        not when it didn’t (you turned it off, or you used <b>This page</b> mode,
+        which captures what’s on screen and doesn’t work out which post answers
+        which). So a file with no chains in it never has to be guessed about.
+      </li>
+      <li>
+        Each post says whether its chain is <b>whole</b>:
+        <code>chain_complete</code>, with <code>chain_end_reason</code> giving
+        <code>root</code> when the chain reached the start of the conversation.
+        Any other value — the 10-parent limit, a post that wouldn’t capture,
+        a cancelled export — means the chain may be missing the post that set
+        the terms, and ThreadSnap tells you in the final message too.
+      </li>
+      <li>
+        Where X says a parent was deleted, suspended or withheld, that notice is
+        captured in the chain’s place and marked <code>unavailable</code>. The
+        notice is the record; the reply is never exported as though it stood alone.
+      </li>
+    </ul>
 
     <h3>Good to know</h3>
     <ul>
