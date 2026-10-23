@@ -25,7 +25,7 @@
   </head>
   <body>
     <h1><span class="brand">ThreadSnap</span>: Thread Exporter — Privacy Policy</h1>
-    <div class="updated">Last updated: 20 October 2026</div>
+    <div class="updated">Last updated: 23 October 2026</div>
 
     <p>
       ThreadSnap is designed to protect your privacy. This policy explains what
@@ -93,8 +93,21 @@
         includes a manifest file listing each post's link, posting and capture
         times, SHA-256 fingerprints, the page you exported from, your browser's
         user agent (its name and version) and its time zone. That file is
-        written into your own export only; it is never sent anywhere. If you
-        share the export, those details go with it.
+        written into your own export, and a copy of it is kept locally in the
+        extension (below) so you can save it again if its download never
+        landed; it is never sent anywhere. If you share the export, those
+        details go with it.
+      </li>
+      <li>
+        <b>A copy of the last Evidence-mode manifest.</b> If you use Evidence
+        mode, the manifest described above is also kept in the browser's local
+        extension storage, because a page cannot see whether a download
+        landed — so ThreadSnap can offer it to you again from the popup
+        ("Save manifest"). The copy holds what the manifest holds: each post's
+        link, handle, posting and capture times, SHA-256 fingerprints, the page
+        you exported from, your browser's user agent and its time zone. It
+        holds no post text and no images. It never leaves your device, and the
+        next Evidence-mode export replaces it.
       </li>
     </ul>
 
@@ -117,18 +130,21 @@
 
     <h2>Data storage</h2>
     <p>
-      The only data stored is your export-preference settings and the one-line
-      note of how far the last export got, both kept locally on your device via
-      the browser's extension storage. Neither holds any post content, and
-      neither leaves your device. You can clear them at any time by removing the
-      extension.
+      Three things are stored, all of them local to your device via the
+      browser's extension storage, and none of them leaving it: your
+      export-preference settings; the one-line note of how far the last export
+      got; and, only if you use Evidence mode, a copy of the last manifest. The
+      first two hold no post content at all. The manifest copy holds the links
+      and times of the posts you exported — no post text, no images — and the
+      next Evidence-mode export replaces it. You can clear all three at any
+      time by removing the extension.
     </p>
 
     <h2>Permissions</h2>
     <ul>
       <li><code>activeTab</code> — grants access to the current tab only at the moment you click the ThreadSnap button, so it can read the open thread (and, if you use the "Specific posts" feature, move that same tab between the posts you listed). No standing access to any site is kept.</li>
       <li><code>scripting</code> — to inject the capture code into that tab on demand when you start an export.</li>
-      <li><code>storage</code> — to remember your export preferences locally, and to note how far the last export got so the extension can tell you what happened if it stops midway.</li>
+      <li><code>storage</code> — to remember your export preferences locally; to note how far the last export got so the extension can tell you what happened if it stops midway; and, in Evidence mode, to keep a copy of the last manifest so you can save it again from the popup if its download never landed.</li>
     </ul>
     <p>
       The extension requests no host permissions. The media and fonts it embeds
