@@ -38,7 +38,7 @@
   </head>
   <body>
     <h1><span class="brand">ThreadSnap</span>: Thread Exporter — Help</h1>
-    <div class="updated">Last updated: 22 October 2026 · applies to version 0.4 and later</div>
+    <div class="updated">Last updated: 23 October 2026 · applies to version 0.4 and later</div>
 
     <div class="toc">
       <b>On this page</b>
@@ -77,12 +77,26 @@
       <li>Open a thread, search result or profile on x.com and let the first posts load.</li>
       <li>Click the ThreadSnap icon. <b>Capture</b> is set to <b>This page</b>.</li>
       <li>Choose <b>PDF</b> or <b>Images</b>, and optionally set <b>Max posts</b>.</li>
-      <li>Click <b>Export</b>. ThreadSnap scrolls from the top and captures each post. A counter in the corner of the page shows progress, with a <b>Cancel</b> button.</li>
+      <li>Click <b>Export</b>. ThreadSnap scrolls from the top and photographs X's column in <b>slices</b>. A counter in the corner of the page shows progress, with a <b>Cancel</b> button.</li>
     </ol>
+    <p>
+      <b>A slice is a run of rows X drew next to each other, captured in one
+      picture</b> — so when X draws a reply indented under the post it answers,
+      with its own line down the side, that stays one picture instead of
+      becoming two. One picture can therefore hold several posts, which is why
+      the final message gives both numbers when they differ: <i>"Done —
+      exported 42 posts in 40 pictures."</i> Neither number stands in for the
+      other.
+    </p>
     <p>
       Leave <b>Max posts</b> blank to capture everything as it scrolls. One
       export holds at most 500 posts, so endless pages such as a profile or a
-      search always come to a stop.
+      search always come to a stop. Both numbers are a <b>floor</b> rather than
+      an exact ceiling: ThreadSnap checks them before it starts a slice and
+      never cuts a picture through a row, so an export can come back with a few
+      posts more than you asked for. Those extra rows are deliberate — cutting
+      the slice would mean a picture that no longer shows X's column
+      unbroken.
     </p>
 
     <h2 id="posts">Capture specific posts</h2>
@@ -115,7 +129,7 @@
     </p>
     <ul>
       <li>Up to 100 posts per export. Smaller lists are better: above 30, the popup warns you, because X may slow down heavy automated use.</li>
-      <li>With <b>Include the posts it replies to</b> on, each post a reply answers is opened on its own page too — so every post in the export shows X's full layout, with its time and view count, rather than the shorter form X gives a post further up a conversation. That means roughly twice the page loads and twice the time for a list of replies.</li>
+      <li>With <b>Include the posts it replies to</b> on, the posts a reply answers are captured <b>in the same picture as the reply</b>, exactly as X draws them on the reply's own page: indented above it, in X's shorter form, with X's connector line between. So the chain costs no extra page loads and no extra time — 20 listed posts are 20 pictures and 20 PDF pages however deep the chains run. Each post's own posting time still comes through; what the shorter form does not show is a parent's view count.</li>
       <li>A post that can't be opened (deleted, protected, or not visible to you) is skipped and listed at the end. The rest still export.</li>
       <li>If 3 posts in a row fail to load, ThreadSnap stops and keeps what it captured. Usually X is limiting requests or you're logged out; wait a while and try a smaller list.</li>
       <li>Each post is captured from its own page, so it shows X's full post layout (larger text, full date and time).</li>
@@ -125,7 +139,7 @@
     <h3>Export as</h3>
     <ul>
       <li><b>PDF</b>: all posts flowed onto pages in one file. A post is never split across two pages; a very long post gets a page of its own.</li>
-      <li><b>Images</b>: one image per post, bundled in a ZIP. Each image is named after its post, for example <code>001-jdoe-2033188970296246273.png</code>: the number keeps the original order, then the author's handle and the post ID.</li>
+      <li><b>Images</b>: one image per <i>picture</i>, bundled in a ZIP — and a picture may hold more than one post (a slice of X's column, or a reply together with what it answers). Each image is named after the post it is filed under, for example <code>001-jdoe-2033188970296246273.png</code>: the number keeps the original order, then the author's handle and the post ID. The manifest's <code>shows</code> lists every post visible in that image.</li>
     </ul>
     <h3>Options</h3>
     <ul>
@@ -142,30 +156,48 @@
       with both capture modes and both outputs.
     </p>
 
-    <h3>1. A stamp under every post</h3>
+    <h3>1. A stamp under every picture</h3>
     <p>
-      A white strip is added <b>below</b> each post, never over it. It's part of
-      the image itself, so it appears on the PDF page and in each ZIP image:
+      A white strip is added <b>below</b> the picture, never over it. It's part
+      of the image itself, so it appears on the PDF page and in each ZIP image.
+      Under a picture of one post it reads:
     </p>
-    <pre>https://x.com/jdoe/status/2033188970296246273
-Captured 2026-10-20 19:27:59 UTC · ThreadSnap 0.4.9
-Posted 2025-09-12 19:42:49 UTC · X shows it above in America/New_York (UTC−04:00)</pre>
+    <pre>https://x.com/jdoe/status/2033188970296246273  2025-09-12 19:42:49 UTC
+Captured 2026-10-23 19:27:59 UTC · ThreadSnap 0.4.45
+Posted times above are UTC; x.com showed them in America/New_York (UTC−04:00)</pre>
     <ul>
-      <li><b>Line 1</b>: the post's own link, even if you captured it from a search or a thread.</li>
+      <li><b>Line 1</b>: the post's own link, even if you captured it from a search or a thread, and when it was published, in UTC.</li>
+      <li><b>Line 2</b>: when ThreadSnap captured the picture, in UTC, and the ThreadSnap version.</li>
       <li>
-        When a reply is exported with the posts it replies to, the <b>whole
-        stamp appears once</b>, under the reply at the foot of the group. The
-        posts above it carry a short band — their own link and posted time —
-        because the capture time, version and time zone are the same for every
-        post in one export. Each post is still a separate image with its own
-        fingerprint, and the manifest still records every post's own capture
-        time and time-zone offset.
+        <b>Line 3</b>: X shows post times in your computer's time zone without
+        saying which one. This line names it, with the offset in force on the
+        post's own date, so the time printed on the post can be matched to the
+        UTC time beside the link. Where no posting time could be read from any
+        row, it says so instead of going quiet.
       </li>
-      <li><b>Line 2</b>: when ThreadSnap captured that post, in UTC, and the ThreadSnap version.</li>
       <li>
-        <b>Line 3</b>: when the post was published, in UTC. X shows post times in
-        your computer's time zone without saying which one; this line names it,
-        so the time shown on the post can be matched to the UTC time.
+        <b>One band per picture, at its foot.</b> When a picture holds several
+        posts — a reply with what it answers, or a slice of X's column — every
+        post in it gets its own <b>Line 1</b>, in the order X drew them, and
+        then lines 2 and 3 are said <b>once</b> for the whole picture. They are
+        the same for every post in it: one picture, one capture, one instant.
+        A picture of two rows or more also carries the sentence <i>"These posts
+        appear one after another in X's column, as X drew them. Nothing between
+        them has been left out."</i>
+      </li>
+      <li>
+        <b>A row X would not render</b> — a deleted parent, say — has no link
+        to print, so it gets a line of its own in its place, quoting what X
+        drew there: <code>No link — x.com drew: This Post was deleted by the
+        Post author.</code> The band accounts for every row it sits under.
+      </li>
+      <li>
+        <b>One picture is one image with one fingerprint.</b> Up to version
+        0.4.25 a reply and each post it answered were separate images; from
+        0.4.26 they are one, so the manifest has one
+        <code>image_sha256</code> and one <code>captured_at_utc</code> per
+        picture, and lists the posts inside it under <code>shows</code> — each
+        with its own link, posting time and time-zone offset.
       </li>
     </ul>
 
@@ -229,17 +261,40 @@ Posted 2025-09-12 19:42:49 UTC · X shows it above in America/New_York (UTC−04
         which). So a file with no chains in it never has to be guessed about.
       </li>
       <li>
-        Each post says whether its chain is <b>whole</b>:
+        Each picture says whether its chain is <b>whole</b>:
         <code>chain_complete</code>, with <code>chain_end_reason</code> giving
         <code>root</code> when the chain reached the start of the conversation.
-        Any other value — the 10-parent limit, a post that wouldn’t capture,
-        a cancelled export — means the chain may be missing the post that set
-        the terms, and ThreadSnap tells you in the final message too.
+        Only <code>root</code> is whole — but <b>not every other value means
+        something is missing</b>, and the final message sorts them into three
+        sentences for exactly that reason:
+        <ul>
+          <li>
+            <b>Something is missing and you could go and get it.</b> The
+            10-parent limit, a parent X had not finished drawing, a post that
+            wouldn’t capture, a cancelled export, or a parent <i>your own</i>
+            block or mute list is hiding — which is the one obstacle you can
+            remove yourself. These are the chains worth a second look, and
+            they are what makes an export read as incomplete.
+          </li>
+          <li>
+            <b>Nothing is missing that anyone could capture.</b>
+            <code>gap_in_chain</code> means the picture <i>does</i> reach the
+            start of the conversation but rows inside it are posts X will not
+            serve to anybody; <code>parent_unavailable</code> means the chain
+            <i>stopped</i> at such a post. Either way the picture already
+            shows X’s own words where the post stood, and there is nothing to
+            go and fetch. ThreadSnap says so in its own sentence and does
+            <b>not</b> treat the export as a failure.
+          </li>
+        </ul>
       </li>
       <li>
         Where X says a parent was deleted, suspended or withheld, that notice is
-        captured in the chain’s place and marked <code>unavailable</code>. The
-        notice is the record; the reply is never exported as though it stood alone.
+        captured in the chain’s place — inside the same picture, where X drew
+        it — and the row is marked <code>unavailable</code> in
+        <code>shows</code>, with X’s own wording in
+        <code>unavailable_reason</code>. The notice is the record; the reply is
+        never exported as though it stood alone.
       </li>
     </ul>
 
