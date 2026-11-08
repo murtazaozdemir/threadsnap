@@ -13,8 +13,56 @@
     <meta property="og:title" content="ThreadSnap: Save X / Twitter Threads as PDF or Images" />
     <meta property="og:description" content="A free Chrome extension that saves a whole X / Twitter thread, or the posts you list, as a PDF or images. Runs locally; nothing is uploaded." />
     <meta property="og:url" content="https://murtazaozdemir.github.io/threadsnap/" />
-    <meta property="og:image" content="https://murtazaozdemir.github.io/threadsnap/icon128.png" />
-    <meta name="twitter:card" content="summary" />
+    <!-- Was icon128.png: a 128px square, which every share surface crops into a
+         thumbnail beside the text. share.png is 1200x630, the one size X,
+         LinkedIn, Slack and Product Hunt all render as a full card. -->
+    <meta property="og:image" content="https://murtazaozdemir.github.io/threadsnap/share.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="ThreadSnap: save a long X / Twitter thread as a clean PDF or images." />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Structured data. The one SEO lever on this page that is ours to pull:
+         Search Console, Bing and Yandex are all account work nobody can do
+         from here, but what a crawler (and an answer engine) is told about the
+         product is in this file. Deliberately absent: softwareVersion, which
+         would be stale the day after a store upload and is worse stale than
+         missing, and aggregateRating, which we have no ratings for and which
+         it would be fraud to invent. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "ThreadSnap: Thread Exporter for X (Twitter)",
+        "alternateName": "ThreadSnap",
+        "url": "https://murtazaozdemir.github.io/threadsnap/",
+        "description": "A free Chrome extension that saves an X / Twitter thread, or a list of posts you paste, as a clean PDF or PNG images. Everything runs locally in your browser; nothing is collected or uploaded.",
+        "applicationCategory": "BrowserApplication",
+        "applicationSubCategory": "Chrome Extension",
+        "operatingSystem": "Chrome",
+        "browserRequirements": "Requires Google Chrome",
+        "downloadUrl": "https://chromewebstore.google.com/detail/threadsnap-thread-exporte/mbofdkcokfgahgajkgnlemdhnpddcjhn",
+        "installUrl": "https://chromewebstore.google.com/detail/threadsnap-thread-exporte/mbofdkcokfgahgajkgnlemdhnpddcjhn",
+        "image": "https://murtazaozdemir.github.io/threadsnap/share.png",
+        "permissions": "activeTab, scripting, storage",
+        "isAccessibleForFree": true,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "Save a whole X / Twitter thread, search result or profile as one PDF",
+          "Or one PNG / JPEG per post, bundled in a ZIP",
+          "Paste a list of post links or IDs to export only those, in your order",
+          "Evidence mode: every picture stamped with the post link, posting time and capture time, plus a SHA-256 manifest",
+          "Runs entirely in the browser — no account, no API, nothing uploaded"
+        ],
+        "author": { "@type": "Organization", "name": "ThreadSnap" },
+        "privacyPolicy": "https://murtazaozdemir.github.io/threadsnap/privacy.html",
+        "softwareHelp": "https://murtazaozdemir.github.io/threadsnap/help.html"
+      }
+    </script>
     <style>
       :root { --brand: #1d9bf0; }
       * { box-sizing: border-box; }

@@ -25,7 +25,7 @@
   </head>
   <body>
     <h1><span class="brand">ThreadSnap</span>: Thread Exporter — Privacy Policy</h1>
-    <div class="updated">Last updated: 23 October 2026</div>
+    <div class="updated">Last updated: 8 November 2026</div>
 
     <p>
       ThreadSnap is designed to protect your privacy. This policy explains what
@@ -83,9 +83,24 @@
         <b>A note of how far the last export got.</b> While an export runs, the
         extension records one line locally — which stage it reached (capturing,
         building, zipping, finished, cancelled or failed), when, how many posts
-        it had captured, and, if it failed, the error message. It holds no post
-        content. It is how the extension can tell you what happened when the
-        page stops responding mid-export, and each export overwrites it.
+        it had captured, and, if it failed, the error message — and keeps the
+        final message it showed you. It holds no post content. It is how the
+        extension can tell you what happened when the page stops responding
+        mid-export, and each export overwrites it.
+      </li>
+      <li>
+        <b>A record of your recent exports (the run log).</b> From version
+        0.4.54 the extension also keeps one row per export for your last 50
+        exports, in the browser's local extension storage, shown under
+        <b>Settings &rarr; Run log</b>. Each row holds that run's id, when it
+        started and finished, the stages it passed through, the settings it ran
+        with, how many posts and pictures came out, the final message, the
+        address of the page it ran on, and the IDs of any posts that could not
+        be captured. It holds no post text and no images — but the page address
+        can itself name an account and a post, and the message can name a post
+        that failed. It never leaves your device: you choose when to save a
+        copy of it (<b>Save log</b>), you can delete it at any time
+        (<b>Clear</b>), and the 51st export drops the oldest row.
       </li>
       <li>
         <b>Evidence mode (optional).</b> If you turn it on, each exported image
@@ -130,21 +145,24 @@
 
     <h2>Data storage</h2>
     <p>
-      Three things are stored, all of them local to your device via the
+      Four things are stored, all of them local to your device via the
       browser's extension storage, and none of them leaving it: your
-      export-preference settings; the one-line note of how far the last export
-      got; and, only if you use Evidence mode, a copy of the last manifest. The
-      first two hold no post content at all. The manifest copy holds the links
-      and times of the posts you exported — no post text, no images — and the
-      next Evidence-mode export replaces it. You can clear all three at any
-      time by removing the extension.
+      export-preference settings; the note of how far the current or last
+      export got, with the final message it showed; the run log of your last 50
+      exports (version 0.4.54 and later); and, only if you use Evidence mode, a
+      copy of the last manifest. <b>None of them holds post text or images.</b>
+      The settings and the note hold no post content at all. The run log holds
+      page addresses, failed post IDs and times; the manifest copy holds the
+      links and times of the posts you exported. You can clear the run log
+      yourself from <b>Settings &rarr; Clear</b>, the next Evidence-mode export
+      replaces the manifest copy, and removing the extension clears all four.
     </p>
 
     <h2>Permissions</h2>
     <ul>
       <li><code>activeTab</code> — grants access to the current tab only at the moment you click the ThreadSnap button, so it can read the open thread (and, if you use the "Specific posts" feature, move that same tab between the posts you listed). No standing access to any site is kept.</li>
       <li><code>scripting</code> — to inject the capture code into that tab on demand when you start an export.</li>
-      <li><code>storage</code> — to remember your export preferences locally; to note how far the last export got so the extension can tell you what happened if it stops midway; and, in Evidence mode, to keep a copy of the last manifest so you can save it again from the popup if its download never landed.</li>
+      <li><code>storage</code> — to remember your export preferences locally; to note how far the last export got so the extension can tell you what happened if it stops midway; to keep the run log of your last 50 exports so a past run can still be accounted for; and, in Evidence mode, to keep a copy of the last manifest so you can save it again from the popup if its download never landed.</li>
     </ul>
     <p>
       The extension requests no host permissions. The media and fonts it embeds

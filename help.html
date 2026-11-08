@@ -6,6 +6,13 @@
     <meta name="description" content="How to use ThreadSnap: capture an X / Twitter thread or a list of posts, export as PDF or images, Evidence mode and fingerprints, and troubleshooting." />
     <link rel="canonical" href="https://murtazaozdemir.github.io/threadsnap/help.html" />
     <link rel="icon" type="image/png" href="icon128.png" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="ThreadSnap" />
+    <meta property="og:title" content="ThreadSnap — Help" />
+    <meta property="og:description" content="How to use ThreadSnap: capture an X / Twitter thread or a list of posts, export as PDF or images, Evidence mode and fingerprints, and troubleshooting." />
+    <meta property="og:url" content="https://murtazaozdemir.github.io/threadsnap/help.html" />
+    <meta property="og:image" content="https://murtazaozdemir.github.io/threadsnap/share.png" />
+    <meta name="twitter:card" content="summary_large_image" />
     <title>ThreadSnap — Help</title>
     <style>
       body {
@@ -38,7 +45,7 @@
   </head>
   <body>
     <h1><span class="brand">ThreadSnap</span>: Thread Exporter — Help</h1>
-    <div class="updated">Last updated: 24 October 2026 · applies to version 0.4 and later</div>
+    <div class="updated">Last updated: 8 November 2026 · applies to version 0.4 and later</div>
 
     <div class="toc">
       <b>On this page</b>
@@ -330,6 +337,36 @@ Posted times above are UTC; x.com showed them in America/New_York (UTC−04:00)<
     </ul>
 
     <h2 id="trouble">Tips and troubleshooting</h2>
+
+    <h3>What happened to that export? — the run log</h3>
+    <p>
+      Open <b>Settings</b> in the popup and you will find a <b>Run log</b>: one
+      row for each of your last 50 exports, newest first. It answers the
+      question a single on-screen message cannot — <i>"it exported 20 of 21
+      yesterday and I never saw which post failed"</i> — because each row
+      outlives the run, including a run that was refused before it started or
+      died in the middle.
+    </p>
+    <p>
+      A row carries what the run <b>did</b>: when it ran, the mode and output
+      you chose, how many posts and pictures came out, which post IDs could not
+      be captured, and the message it finished on. A row that needs attention
+      also shows the last few steps it took, and every row has an <b>id</b>
+      (shown after <b>#</b>) you can quote in an email. It records what the run
+      did, never what it captured — no post text, no images.
+    </p>
+    <ul>
+      <li><b>Save log</b> writes the whole log out as a JSON file, which is the
+        useful thing to attach if you are reporting a problem.</li>
+      <li><b>Clear</b> deletes it. The log lives in the extension's own storage
+        on this computer, nothing sends it anywhere, and the 51st export drops
+        the oldest row by itself.</li>
+      <li>A row with <b>no end time</b> means that run was interrupted outright
+        — the tab reloaded, or Chrome updated the extension mid-export — which
+        is itself the most useful thing the log can tell you.</li>
+    </ul>
+
+    <h3>Common problems</h3>
     <ul>
       <li><b>Keep the tab in front while ThreadSnap runs.</b> Chrome slows down background tabs, which can give blank or missing posts.</li>
       <li><b>The Export button is greyed out.</b> The open tab isn't on x.com. Open an x.com page and click the icon again.</li>
